@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachiketh Joshi - Computer Science Graduate Student</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">NJ</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button class="mode-toggle" id="modeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-down" data-aos-duration="1000">Nachiketh Joshi</h1>
+            <h2 data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">Computer Science Graduate Student
+                <br>Software Engineer | AI & Cloud Enthusiast
+            </h2>
+            <p data-aos="fade-in" data-aos-delay="600">Tampa, USA</p>
+            <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="900">
+                <a href="#about" class="btn">Learn More</a>
+                <a href="https://github.com/nachikethjoshi28" class="btn-secondary" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">About Me</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-image">
+                    <img src="images\profile.jpg" alt="Nachiketh Joshi" data-aos="zoom-in"> <!-- Update src here -->
+                </div>
+                <div class="about-text">
+                    <p>I’m a highly motivated computer science professional with a passion for building scalable,
+                        efficient, and intelligent systems. With hands-on experience in backend development, machine
+                        learning, and cloud computing, I aim to design impactful software that bridges innovation and
+                        real-world use.</p>
+                    <!-- <p>Currently pursuing a Master’s degree at the University of South Florida.</p> -->
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> nachikethjoshi28@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section - Modern Card Layout -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Experience</h2>
+            <div class="experience-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- sans america Card -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header">
+                        <!-- Sansamerica LOGO: Replace src with your local file, e.g., src="cybermotion-logo.png" -->
+                        <img src="images\sansamerica.jpg" alt="Sansamerica Logo" class="company-logo">
+                        <div class="header-text">
+                            <h3>Software Engineer</h3>
+                            <p class="company-name">Sans America</p>
+                            <span class="dates">2025–Present</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Designed and deployed scalable data pipelines and interactive dashboards (SQL, Python,
+                            Tableau/Power BI), reducing reporting errors by 20% and enabling executives to track KPIs in
+                            real time.
+                            <!--<br>Automated recurring workflows and optimized reporting systems, cutting manual effort by 25%
+                        while improving overall data reliability, accessibility, and decision-making speed.</ul>-->
+                        </p>
+                        <div class="tech-used">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">PowerBI</span>
+                            <span class="tech-badge">Automation</span>
+                            <span class="tech-badge">Data pipelines</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- TCS Card -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header">
+                        <!-- TCS LOGO: Replace src with your local file, e.g., src="tcs-logo.png" -->
+                        <img src="images\tcs.png" alt="Tata Consultancy Services Logo" class="company-logo">
+                        <div class="header-text">
+                            <h3>Systems Engineer</h3>
+                            <p class="company-name">Tata Consultancy Services</p>
+                            <span class="dates">2021 – 2022</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Developed a scalable MCPTT application with Java & Spring Boot, improving API response times
+                            by
+                            33% and reducing server load by 25% to ensure reliability in distributed systems.
+                            <!--<br>Enhanced CI/CD pipelines using Jenkins & Git, reducing integration and deployment time by
+                        50% through automation, containerization, and cross-team collaboration.-->
+                        </p>
+                        <div class="tech-used">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Spring-Boot</span>
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Kubernetes</span>
+                            <span class="tech-badge">Microservices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cybermotion Card -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header">
+                        <!-- CYBERMOTION LOGO: Replace src with your local file, e.g., src="cybermotion-logo.png" -->
+                        <img src="images\cybermotion.jpg" alt="Cybermotion Technologies Logo" class="company-logo">
+                        <div class="header-text">
+                            <h3>Machine Learning Intern</h3>
+                            <p class="company-name">Cybermotion Technologies</p>
+                            <span class="dates">2019</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Built AI Educator, an AI-powered learning management system using ML, NLP, and distributed
+                            computing, improving system usability and boosting student engagement by 15%.
+                            <!-- <br>Optimized algorithms and adaptive learning models, improving system performance by 25% and
+                        delivering a scalable platform tailored to real-time user behavior. -->
+                        <div class="tech-used">
+                            <span class="tech-badge">Machine Learning</span>
+                            <span class="tech-badge">Natural Language processing</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Optimization</span>
+                            <span class="tech-badge">Learning Management System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Skills</h2>
+            <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-category" data-aos="fade-right" data-aos-delay="100">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul>
+                        <li><span class="skill-badge" style="--bg: linear-gradient(45deg, #28a745, #20c997);">C++</span>
+                        </li>
+                        <li><span class="skill-badge"
+                                style="--bg: linear-gradient(45deg, #fd7e14, #ffc107);">Python</span></li>
+                        <li><span class="skill-badge"
+                                style="--bg: linear-gradient(45deg, #007bff, #6f42c1);">Java</span></li>
+                        <li><span class="skill-badge" style="--bg: linear-gradient(45deg, #6c757d, #adb5bd);">C</span>
+                        </li>
+                        <li><span class="skill-badge"
+                                style="--bg: linear-gradient(45deg, #ffc107, #fd7e14);">JavaScript</span></li>
+                        <li><span class="skill-badge" style="--bg: linear-gradient(45deg, #28a745, #17a2b8);">C#</span>
+                        </li>
+                        <li><span class="skill-badge" style="--bg: linear-gradient(45deg, #e83e8c, #dc3545);">R</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-server"></i> Technologies</h3>
+                    <ul>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> MongoDB</li>
+                        <li><i class="fas fa-database"></i> DynamoDB</li>
+                        <li><i class="fab fa-php"></i> PHP</li>
+                        <li><i class="fab fa-aws"></i> AWS</li>
+                        <li><i class="fab fa-node-js"></i> NodeJS</li>
+                        <li><i class="fab fa-react"></i> React</li>
+                        <li><i class="fas fa-leaf"></i> Spring Boot</li>
+                        <li><i class="fab fa-angular"></i> Angular</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                        <li><i class="fab fa-kubernetes"></i> Kubernetes</li>
+                        <li><i class="fab fa-tensorflow"></i> TensorFlow</li>
+                        <li><i class="fab fa-google"></i> GCP</li>
+                    </ul>
+                </div>
+                <div class="skill-category" data-aos="fade-left" data-aos-delay="300">
+                    <h3><i class="fas fa-brain"></i> Concepts</h3>
+                    <ul>
+                        <li><i class="fas fa-globe"></i> Web Development</li>
+                        <li><i class="fas fa-cloud"></i> Cloud Computing</li>
+                        <li><i class="fas fa-robot"></i> Machine Learning</li>
+                        <li><i class="fas fa-chart-bar"></i> Data Science</li>
+                        <li><i class="fas fa-cogs"></i> Microservices</li>
+                        <li><i class="fas fa-network-wired"></i> Neural Networks</li>
+                        <li><i class="fas fa-tools"></i> DevOps</li>
+                        <li><i class="fas fa-agile"></i> Agile Methodologies</li>
+                    </ul>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="400">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul>
+                        <li><span class="skill-badge cert"
+                                style="--bg: linear-gradient(45deg, #6f42c1, #e83e8c);">TensorFlow Developer
+                                Certificate</span></li>
+                        <li><span class="skill-badge cert" style="--bg: linear-gradient(45deg, #007bff, #17a2b8);">AWS
+                                Fundamentals</span></li>
+                        <li><span class="skill-badge cert" style="--bg: linear-gradient(45deg, #fd7e14, #28a745);">PHP
+                                Web App on LAMP Stack</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Education</h2>
+            <div class="education-timeline" data-aos="fade-up" data-aos-delay="200">
+                <div class="education-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-dot">
+                        <!-- ADD YOUR USF LOGO: Replace src with your file, e.g., src="usf-logo.png" -->
+                        <img src="images\usf.png" alt="University of South Florida Logo" class="school-logo">
+                    </div>
+                    <div class="education-content">
+                        <h3>Master of Science in Computer Science</h3>
+                        <h4>University of South Florida, Tampa, FL</h4>
+                        <p class="dates">2023 – 2024</p>
+                        <p>Relevant Coursework: Machine Learning, Cloud Computing, Advanced Algorithms, Data Structures.
+                            GPA: 3.67/4.0 .</p>
+                    </div>
+                </div>
+                <div class="education-item" data-aos="fade-left" data-aos-delay="300">
+                    <div class="timeline-dot">
+                        <!-- ADD YOUR UNDERGRAD LOGO: Replace src with your file, e.g., src="undergrad-logo.png" -->
+                        <img src="images\bvrit.jpg" alt="Undergraduate University Logo" class="school-logo">
+                    </div>
+                    <div class="education-content">
+                        <h3>Bachelor of Engineering in Computer Science</h3>
+                        <h4>Padmashri Dr B V Raju Institute of Technology, India</h4>
+                        <p class="dates">2017 – 2021</p>
+                        <p>Focused on software engineering, AI foundations, and database systems. Capstone Project:
+                            Developed a web-based inventory management system using Java and MySQL. GPA: 8.5/10.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Projects</h2>
+            <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/400x250/007bff/ffffff?text=Attendance+System"
+                        alt="Smart Attendance Management System" class="project-img">
+                    <!-- REPLACE ABOVE SRC WITH YOUR IMAGE: e.g., src="project1.jpg" -->
+                    <h3>Smart Attendance Management System</h3>
+                    <p>Built with Python, Flask, React, and TensorFlow — achieved 95% accuracy and reduced manual
+                        workload by 90%.</p>
+                    <a href="https://github.com/nachikethjoshi28" target="_blank" class="btn project-btn">View on
+                        GitHub</a>
+                </div>
+                <div class="project-card" data-aos="flip-right" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/400x250/fd7e14/ffffff?text=Text+Summarizer"
+                        alt="Smart Text Summarizer Application" class="project-img">
+                    <!-- REPLACE ABOVE SRC WITH YOUR IMAGE: e.g., src="project2.jpg" -->
+                    <h3>Smart Text Summarizer Application</h3>
+                    <p>Developed an AI-powered text summarizer using NLP, Machine Learning, and LLMs to reduce reading
+                        time by 80%.</p>
+                    <a href="https://github.com/nachikethjoshi28" target="_blank" class="btn project-btn">View on
+                        GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Resume</h2>
+            <div class="resume-content" data-aos="fade-up" data-aos-delay="200">
+                <p>Download my full resume in PDF format for detailed experience, skills, and education.</p>
+                <!-- FIXED LINK: Add download attribute here -->
+                <a href="Joshi Nachiketh Resume.pdf" download="Nachiketh-Resume.pdf" class="btn btn-primary">Download Resume</a>
+                <!-- Alternative: If embedded or list-style -->
+                <!-- <ul class="resume-links">
+                <li><a href="resume.pdf" download="Nachiketh-Resume.pdf">Nachiketh Joshi - Full Resume (PDF)</a></li>
+            </ul> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up">Contact</h2>
+            <form id="contactForm" data-aos="fade-up" data-aos-delay="200">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <p id="formMessage" class="form-message"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nachiketh Joshi. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/nachikethjoshi28" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:nachikethjoshi28@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
