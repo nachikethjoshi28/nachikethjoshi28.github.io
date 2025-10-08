@@ -56,60 +56,170 @@ AOS.init({
     offset: 100
 });
 
-// Initialize EmailJS with your User ID
-(function() {
-    emailjs.init("YOUR_USER_ID"); // e.g., "user_ghi789"
+// Email Validation Function (from previous guide - keep if you have it)
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Initialize EmailJS (keep your User ID)
+(function () {
+    emailjs.init("k6VS5Tuy8D5xEo3I9");  // e.g., "user_abc123"
 })();
 
-// Handle form submission
+// Keep existing functions (isValidEmail, emailjs.init)
+
+// Global variables for verification (to access across functions)
+let verificationCode = '';  // Store the generated code
+let originalSubmitBtn = null;  // To hide/show submit button
+
+// Resend Function (for the button)
+function resendCode() {
+    const email = document.getElementById('user_email').value.trim();
+    const name = document.getElementById('user_name').value.trim();
+    if (!email) return;
+
+    // Regenerate and send new code
+    verificationCode = Math.random().toString(36).substring(7).toUpperCase();
+    console.log('Resent code:', verificationCode);
+
+    emailjs.send("service_kol9kvh", "template_1im8j1f", {
+        to_email: email,
+        name: name,
+        verification_code: verificationCode
+    })
+    .then(function(response) {
+        console.log('Resend success');
+        alert('New code sent! Check your email.');
+        startResendTimer();  // Optional timer
+    }, function(error) {
+        console.log('Resend error:', error);
+        alert('Failed to resend. Try again.');
+    });
+}
+
+// Optional: Resend Timer (disables button for 60s)
+function startResendTimer() {
+    let timeLeft = 60;
+    const timerEl = document.getElementById('resend-timer');
+    const resendBtn = document.getElementById('resend-btn');
+    resendBtn.disabled = true;
+    resendBtn.textContent = 'Resend (60s)';
+    timerEl.textContent = 'New code sent. You can resend in 60 seconds.';
+
+    const interval = setInterval(() => {
+        timeLeft--;
+        resendBtn.textContent = `Resend (${timeLeft}s)`;
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            resendBtn.disabled = false;
+            resendBtn.textContent = 'Resend Code';
+            timerEl.textContent = '';
+        }
+    }, 1000);
+}
+
+// Form Submission Handler
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    // Get form data
-    const params = {
-        name: document.getElementById('user_name').value,
-        email: document.getElementById('user_email').value,
-        message: document.getElementById('message').value
-    };
+    // Get form values and validate (keep your existing code)
+    const name = document.getElementById('user_name').value.trim();
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    // Send email via EmailJS
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params) // e.g., "service_def456", "template_abc123"
-        .then(function(response) {
-            alert('Message sent successfully! Thank you for reaching out.');
-            document.getElementById('contact-form').reset(); // Clear form
-        }, function(error) {
-            alert('Failed to send message. Please try again or email me directly.');
-            console.log('EmailJS Error:', error);
-        });
+    const errorDiv = document.getElementById('form-error');
+    if (errorDiv) {
+        errorDiv.style.display = 'none';
+        errorDiv.textContent = '';
+    }
+
+    if (!name || !email || !message) {
+        if (errorDiv) {
+            errorDiv.textContent = 'Please fill in all fields.';
+            errorDiv.style.display = 'block';
+        }
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        if (errorDiv) {
+            errorDiv.textContent = 'Please enter a valid email address.';
+            errorDiv.style.display = 'block';
+        }
+        document.getElementById('user_email').focus();
+        return;
+    }
+
+    // Hide submit button and show verification section
+    originalSubmitBtn = event.target.querySelector('button[type="submit"]');
+    if (originalSubmitBtn) originalSubmitBtn.style.display = 'none';
+
+    document.getElementById('user-email-display').textContent = email;
+    document.getElementById('verify-section').style.display = 'block';
+    document.getElementById('code-input').focus();  // Auto-focus input
+
+    // Step 1: Generate and Send Verification Code
+    verificationCode = Math.random().toString(36).substring(7).toUpperCase();
+    console.log('Generated code:', verificationCode);
+
+    emailjs.send("service_kol9kvh", "template_1im8j1f", {
+        to_email: email,
+        name: name,
+        verification_code: verificationCode
+    })
+    .then(function(response) {
+        console.log('Verification sent:', response);
+        // Section is already shown; user can now enter code
+    }, function(error) {
+        console.log('Verification error:', error);
+        alert('Failed to send code. Please try again.');
+        if (originalSubmitBtn) originalSubmitBtn.style.display = 'block';
+        document.getElementById('verify-section').style.display = 'none';
+    });
 });
 
-// // EmailJS Initialization and Form Handling
-// (function() {
-//     emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
-// })();
+// Handle Verify Button Click (outside submit handler)
+document.getElementById('verify-btn').addEventListener('click', function() {
+    const userCode = document.getElementById('code-input').value.trim().toUpperCase();
+    const errorEl = document.getElementById('code-error');
 
-// const contactForm = document.getElementById('contactForm');
-// const formMessage = document.getElementById('formMessage');
+    if (!userCode) {
+        errorEl.textContent = 'Please enter the code.';
+        errorEl.style.display = 'block';
+        return;
+    }
 
-// contactForm.addEventListener('submit', function(event) {
-//     event.preventDefault();
+    if (userCode === verificationCode) {
+        // Success: Send Main Email
+        const email = document.getElementById('user_email').value.trim();
+        const name = document.getElementById('user_name').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-//     const formData = new FormData(contactForm);
-//     const templateParams = {
-//         from_name: formData.get('name') || contactForm.querySelector('input[type="text"]').value,
-//         from_email: formData.get('email') || contactForm.querySelector('input[type="email"]').value,
-//         message: formData.get('message') || contactForm.querySelector('textarea').value
-//     };
+        const mainParams = { name, email, message };
+        emailjs.send("service_kol9kvh", "template_yu5nd45", mainParams)
+        .then(function(mainResponse) {
+            console.log('Main email sent:', mainResponse);
+            alert('Message verified and sent successfully! I\'ll reply soon.');
+            // Reset form and hide verification
+            document.getElementById('contact-form').reset();
+            document.getElementById('verify-section').style.display = 'none';
+            if (originalSubmitBtn) originalSubmitBtn.style.display = 'block';
+        }, function(mainError) {
+            console.log('Main error:', mainError);
+            alert('Verification passed, but send failed. Try again.');
+        });
+    } else {
+        errorEl.textContent = 'Invalid code. Check your email and try again.';
+        errorEl.style.display = 'block';
+        document.getElementById('code-input').value = '';  // Clear input
+        document.getElementById('code-input').focus();
+    }
+});
 
-//     emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams) // Replace with your IDs
-//         .then(function(response) {
-//             formMessage.textContent = 'Message sent successfully!';
-//             formMessage.className = 'form-message success';
-//             contactForm.reset();
-//         }, function(error) {
-//             formMessage.textContent = 'Failed to send message. Please try again.';
-//             formMessage.className = 'form-message error';
-//             console.error('EmailJS error:', error);
-//         });
-        
-// });
+// Enter Key Support (for code input)
+document.getElementById('code-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('verify-btn').click();  // Trigger verify on Enter
+    }
+});
