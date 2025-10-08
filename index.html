@@ -316,20 +316,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- <section id="contact" class="section">
-        <div class="container">
-            <h2 data-aos="fade-up">Contact</h2>
-            <form id="contactForm" data-aos="fade-up" data-aos-delay="200">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <p id="formMessage" class="form-message"></p>
-        </div>
-    </section> -->
-
     <!-- Contact Section - With Working Form -->
     <section id="contact" class="section">
         <div class="container">
@@ -338,15 +324,40 @@
                 <p>Have a project or question? Send me a message!</p>
                 <form id="contact-form">
                     <div class="form-group">
-                        <input type="text" id="user_name" name="name" placeholder="Your Name" required>
+                        <input type="text" id="user_name" name="name" placeholder="Your Name" required maxlength="50">
                     </div>
                     <div class="form-group">
-                        <input type="email" id="user_email" name="email" placeholder="Your Email" required>
+                        <input type="email" id="user_email" name="email"
+                            placeholder="Your Email (e.g., name@example.com)" required
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            title="Please enter a valid email address (e.g., user@example.com)">
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required
+                            maxlength="500"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
+
+                    <!-- Existing form fields... -->
+                    <!-- <button type="submit" class="btn">Send Message</button> -->
+
+                    <!-- New: Verification Section (Hidden Initially) -->
+                    <div id="verify-section"
+                        style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9;">
+                        <h3>Verify Your Email</h3>
+                        <p>A code has been sent to <span id="user-email-display"></span>. Enter it below:</p>
+                        <input type="text" id="code-input" placeholder="Enter 7-character code (e.g., ABC123)"
+                            maxlength="7" style="width: 200px; padding: 8px; margin-right: 10px;" autocomplete="off">
+                        <button id="verify-btn" class="btn" style="padding: 8px 15px;">Verify Code</button>
+                        <button id="resend-btn" class="btn"
+                            style="padding: 8px 15px; background: #6c757d; margin-left: 10px;"
+                            onclick="resendCode()">Resend Code</button>
+                        <div id="code-error" style="color: red; margin-top: 10px; display: none;"></div>
+                        <p id="resend-timer" style="font-size: 12px; color: #666; margin-top: 10px;"></p>
+                    </div>
+
+                    <!-- Existing error div if you have it -->
+                    <div id="form-error" style="color: red; display: none; margin-top: 10px;"></div>
                 </form>
                 <!-- Optional: Add social links or address -->
                 <div class="contact-info">
@@ -375,4 +386,3 @@
 </body>
 
 </html>
-
