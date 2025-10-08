@@ -56,33 +56,60 @@ AOS.init({
     offset: 100
 });
 
-// EmailJS Initialization and Form Handling
+// Initialize EmailJS with your User ID
 (function() {
-    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+    emailjs.init("YOUR_USER_ID"); // e.g., "user_ghi789"
 })();
 
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+// Handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-contactForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const templateParams = {
-        from_name: formData.get('name') || contactForm.querySelector('input[type="text"]').value,
-        from_email: formData.get('email') || contactForm.querySelector('input[type="email"]').value,
-        message: formData.get('message') || contactForm.querySelector('textarea').value
+    // Get form data
+    const params = {
+        name: document.getElementById('user_name').value,
+        email: document.getElementById('user_email').value,
+        message: document.getElementById('message').value
     };
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams) // Replace with your IDs
+    // Send email via EmailJS
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params) // e.g., "service_def456", "template_abc123"
         .then(function(response) {
-            formMessage.textContent = 'Message sent successfully!';
-            formMessage.className = 'form-message success';
-            contactForm.reset();
+            alert('Message sent successfully! Thank you for reaching out.');
+            document.getElementById('contact-form').reset(); // Clear form
         }, function(error) {
-            formMessage.textContent = 'Failed to send message. Please try again.';
-            formMessage.className = 'form-message error';
-            console.error('EmailJS error:', error);
+            alert('Failed to send message. Please try again or email me directly.');
+            console.log('EmailJS Error:', error);
         });
-        
 });
+
+// // EmailJS Initialization and Form Handling
+// (function() {
+//     emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+// })();
+
+// const contactForm = document.getElementById('contactForm');
+// const formMessage = document.getElementById('formMessage');
+
+// contactForm.addEventListener('submit', function(event) {
+//     event.preventDefault();
+
+//     const formData = new FormData(contactForm);
+//     const templateParams = {
+//         from_name: formData.get('name') || contactForm.querySelector('input[type="text"]').value,
+//         from_email: formData.get('email') || contactForm.querySelector('input[type="email"]').value,
+//         message: formData.get('message') || contactForm.querySelector('textarea').value
+//     };
+
+//     emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams) // Replace with your IDs
+//         .then(function(response) {
+//             formMessage.textContent = 'Message sent successfully!';
+//             formMessage.className = 'form-message success';
+//             contactForm.reset();
+//         }, function(error) {
+//             formMessage.textContent = 'Failed to send message. Please try again.';
+//             formMessage.className = 'form-message error';
+//             console.error('EmailJS error:', error);
+//         });
+        
+// });
