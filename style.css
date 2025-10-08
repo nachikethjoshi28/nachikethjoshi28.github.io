@@ -1003,6 +1003,7 @@ h3 {
     color: var(--secondary-color);
 }
 
+
 /* Contact
 #contact {
     background: var(--border-color);
@@ -1099,6 +1100,16 @@ h3 {
     color: var(--secondary-color);
 }
 
+/* Form Validation Styles */
+input:invalid, textarea:invalid {
+    border-color: #f3d0d3; /* Red border on invalid */
+}
+input:valid, textarea:valid {
+    border-color: #28a745; /* Green on valid */
+}
+#form-error {
+    font-size: 14px;
+}
 /* Responsive */
 @media (max-width: 768px) {
 
