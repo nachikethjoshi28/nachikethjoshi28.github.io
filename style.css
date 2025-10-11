@@ -1,7 +1,7 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --accent-color: #007bff;
+    --accent-color: #0f6ed2;
     --secondary-color: #6c757d;
     --border-color: #e9ecef;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -13,7 +13,7 @@
     --text-color: #ffffff;
     --accent-color: #4dabf7;
     --secondary-color: #adb5bd;
-    --border-color: #333333;
+    --border-color: #f5f1f1;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -158,7 +158,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
     /* Spotlight effect on center */
     pointer-events: none;
     z-index: 1;
@@ -178,12 +178,12 @@ h3 {
         radial-gradient(1px 1px at 90px 40px, #4f46e5, transparent),
         radial-gradient(1px 1px at 130px 80px, rgba(99, 102, 241, 0.6), transparent),
         /* Add more dots for density if desired */
-        linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.02) 50%, transparent 51%);
+        linear-gradient(90deg, transparent 70%, rgba(255, 255, 255, 0.02) 70%, transparent 70%);
     /* Subtle grid lines */
     background-repeat: repeat;
     background-size: 200px 100px;
     /* Pattern scale */
-    opacity: 0.3;
+    opacity: 0.6;
     /* Subtle tech pattern */
     animation: float 20s ease-in-out infinite;
     /* Floating animation */
@@ -219,7 +219,7 @@ h3 {
     margin-bottom: 1rem;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     /* Depth for readability */
-    background: linear-gradient(45deg, #ffffff, #e0e7ff);
+    background: linear-gradient(45deg, #ffffff, #f5f5f6);
     /* Gradient text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -421,7 +421,7 @@ h3 {
 .about-image img {
     width: 200px;
     /* Larger size (from previous update) */
-    height: 200px;
+    height: 220px;
     border-radius: 50%;
     /* Circular shape */
     object-fit: cover;
@@ -429,7 +429,7 @@ h3 {
     box-shadow: var(--shadow);
     /* Subtle shadow for depth */
     transition: var(--transition);
-    border: 4px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     /* Colorful border */
     display: block;
     /* Ensures centering */
@@ -439,14 +439,14 @@ h3 {
 .about-image img:hover {
     transform: scale(1.05);
     /* Slight zoom on hover */
-    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 7px 20px rgba(0, 123, 255, 0.3);
     /* Glow effect */
 }
 
 .about-text {
     flex: 1;
     text-align: center;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .about-text p {
@@ -608,6 +608,17 @@ h3 {
     border-bottom: 1px solid var(--border-color);
 }
 
+a.custom-link {
+    text-decoration: none;   /* Remove underline */
+    color: inherit;          /* Keep same text color */
+    cursor: pointer;         /* Show pointer on hover */
+}
+
+/* Optional: Hover effect (you can leave empty or customize) */
+a.custom-link:hover {
+    font-weight: bold;
+}
+
 /* Projects */
 .projects-grid {
     display: grid;
@@ -766,7 +777,11 @@ h3 {
 }
 
 .experience-card:nth-child(3) .card-header {
-    background: linear-gradient(135deg, rgba(243, 241, 147, 0.918), rgba(236, 244, 173, 0.08));
+    background: linear-gradient(135deg, rgba(244, 242, 138, 0.918), rgba(236, 244, 173, 0.08));
+    /* blue tint for Cybermotion */
+}
+.experience-card:nth-child(4) .card-header {
+    background: linear-gradient(135deg, rgba(215, 220, 240, 0.918), rgba(236, 244, 173, 0.08));
     /* blue tint for Cybermotion */
 }
 
